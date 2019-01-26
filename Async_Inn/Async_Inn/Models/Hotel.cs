@@ -12,6 +12,7 @@ namespace Async_Inn.Models
         public string Address { get; set; }
         public string Phone { get; set; }
 
+        ICollection<HotelRoom> Rooms { get; set; }
         /// <summary>
         /// Navigation properties
         /// </summary>

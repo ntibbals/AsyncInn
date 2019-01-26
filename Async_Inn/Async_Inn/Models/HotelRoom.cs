@@ -7,9 +7,9 @@ namespace Async_Inn.Models
 {
     public class HotelRoom
     {
-        public Hotel HotelID { get; set; }
-        public Room RoomID { get; set; }
-        public Room ID { get; set; }
+        public int HotelID { get; set; }
+        public int RoomNumber { get; set; }
+        public decimal RoomID { get; set; }
         public decimal Rate { get; set; }
         public bool PetFriendly { get; set; }
 
