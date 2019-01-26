@@ -10,6 +10,9 @@ namespace Async_Inn.Models
         public int ID { get; set; }
         public string Name { get; set; }
         public Layouts Layout { get; set; }
+
+        public HotelRoom HotelRoom { get; set; }
+        public RoomAmenities RoomAmenities { get; set; }
     }
 
     public enum Layouts
