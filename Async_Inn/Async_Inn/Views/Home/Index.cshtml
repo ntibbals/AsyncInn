@@ -1,9 +1,46 @@
 ﻿
-@{
-    ViewData["Title"] = "Index";
-}
 
-<h1>Index</h1>
 
-Home Page
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <title>Home Page</title>
+    <link href="~/reset.css" rel="stylesheet" />
 
+    <link href="~/StyleSheet.css" rel="stylesheet" />
+
+</head>
+<body>
+    <header>
+        <div id="headcontain">
+            <nav id="hamburger" role="navigation">
+                <div id="navToggle">
+                    <input type="checkbox" />
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <ul id="nav">
+                        <li><a href='/'>Home</a></li>
+                        <li><a href='/Amenities'>Hotel Amenities</a></li>
+                        <li><a href='/Hotel'>Hotels</a></li>
+                        <li><a href='/HotelRoom'>Hotel Rooms</a></li>
+                        <li><a href='/Room'>Rooms</a></li>
+                        <li><a href='/RoomAmenities'>Room Amenities</a></li>
+
+                    </ul>
+                </div>
+            </nav>
+            <div id="headtitle"><a href="/"></a></div>
+        </div>
+    </header>
+    <main>
+        @{
+            ViewData["Title"] = "Index";
+        }
+
+        <h1>Index</h1>
+
+        Home Page
+    </main>
+    <footer></footer>
+</body>
+</html>
