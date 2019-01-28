@@ -1,5 +1,8 @@
 # AsyncInn
 
+### Database Schema 
+![SCHEMA](https://github.com/ntibbals/AsyncInn/blob/master/Assets/SchemaAsyncInn.png)
+
 ### Introduction
 
 - This is a Hotel management system for "Async Inn". It utilizes the Schema above to manage the data within a SQL database. The database is comprised of five tables listed with each relationship listed below:
