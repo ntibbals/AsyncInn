@@ -14,5 +14,5 @@
 - The Amenities table has a one to many relationship wit hthe Room Amenities table along with one primary key.
 
 ### Visual
-![SCHEMA](https://github.com/ntibbals/AsyncInn/blob/master/Assets/index.png)
+![SCHEMA](https://github.com/ntibbals/AsyncInn/blob/master/Assets/index.PNG)
 
