@@ -3,14 +3,16 @@ using Async_Inn.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Async_Inn.Migrations
 {
     [DbContext(typeof(AsyncInnDbContext))]
-    partial class AsyncInnDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190128215205_initial2")]
+    partial class initial2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -29,23 +31,6 @@ namespace Async_Inn.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Amenities");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 1,
-                            Name = "Pool"
-                        },
-                        new
-                        {
-                            ID = 2,
-                            Name = "Continental Breakfast"
-                        },
-                        new
-                        {
-                            ID = 3,
-                            Name = "Valet"
-                        });
                 });
 
             modelBuilder.Entity("Async_Inn.Models.Hotel", b =>
@@ -63,29 +48,6 @@ namespace Async_Inn.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Hotel");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 10,
-                            Address = "215",
-                            Name = "Queene Anne",
-                            Phone = "999-999-9999"
-                        },
-                        new
-                        {
-                            ID = 11,
-                            Address = "315",
-                            Name = "Ballard",
-                            Phone = "888-888-8888"
-                        },
-                        new
-                        {
-                            ID = 12,
-                            Address = "415",
-                            Name = "Cap City",
-                            Phone = "777-777-7777"
-                        });
                 });
 
             modelBuilder.Entity("Async_Inn.Models.HotelRoom", b =>
@@ -123,26 +85,6 @@ namespace Async_Inn.Migrations
                     b.HasKey("ID");
 
                     b.ToTable("Room");
-
-                    b.HasData(
-                        new
-                        {
-                            ID = 21,
-                            Layout = 1,
-                            Name = "Bowie"
-                        },
-                        new
-                        {
-                            ID = 31,
-                            Layout = 0,
-                            Name = "Freddy"
-                        },
-                        new
-                        {
-                            ID = 41,
-                            Layout = 2,
-                            Name = "Elton"
-                        });
                 });
 
             modelBuilder.Entity("Async_Inn.Models.RoomAmenities", b =>

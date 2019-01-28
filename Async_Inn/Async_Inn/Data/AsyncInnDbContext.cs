@@ -24,6 +24,67 @@ namespace Async_Inn.Data
             modelBuilder.Entity<RoomAmenities>().HasKey(ra => new { ra.AmenitiesID, ra.RoomID });
 
             /// modelBuilder.Entity<CourseEnrollments>().HasKey(ce => new { ce.CourseID, ce.StudentID });
+            modelBuilder.Entity<Amenities>().HasData(
+                new Amenities
+                {
+                    ID = 1,
+                    Name = "Pool"
+                },
+                new Amenities
+                {
+                    ID = 2,
+                    Name = "Continental Breakfast"
+                },
+                new Amenities
+                {
+                    ID = 3,
+                    Name = "Valet"
+                }
+                );
+            modelBuilder.Entity<Hotel>().HasData(
+                new Hotel
+                {
+                    ID = 10,
+                    Name = "Queene Anne",
+                    Address = "215",
+                    Phone = "999-999-9999"
+                },
+                new Hotel
+                {
+                    ID = 11,
+                    Name = "Ballard",
+                    Address = "315",
+                    Phone = "888-888-8888"
+                },
+                new Hotel
+                {
+                    ID = 12,
+                    Name = "Cap City",
+                    Address = "415",
+                    Phone = "777-777-7777"
+                }
+            );
+            modelBuilder.Entity<Room>().HasData(
+            new Room
+            {
+                ID = 21,
+                Name = "Bowie",
+                Layout = Layouts.OneBedroom
+            },
+            new Room
+            {
+                ID = 31,
+                Name = "Freddy",
+                Layout = Layouts.Studio
+            },
+            new Room
+            {
+                ID = 41,
+                Name = "Elton",
+                Layout = Layouts.TwoBedroom
+            }
+            );
+
 
         }
         /// Tables

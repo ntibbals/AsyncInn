@@ -22,7 +22,7 @@ namespace Async_Inn.Controllers
         // GET: HotelRoom
         public async Task<IActionResult> Index()
         {
-            var asyncInnDbContext = _context.HotelRoom.Include(h => h.Hotel);
+            var asyncInnDbContext = _context.HotelRoom.Include(h => h.Hotel).Include(h => h.Room);
             return View(await asyncInnDbContext.ToListAsync());
         }
 
@@ -36,6 +36,7 @@ namespace Async_Inn.Controllers
 
             var hotelRoom = await _context.HotelRoom
                 .Include(h => h.Hotel)
+                .Include(h => h.Room)
                 .FirstOrDefaultAsync(m => m.HotelID == id);
             if (hotelRoom == null)
             {
@@ -49,6 +50,7 @@ namespace Async_Inn.Controllers
         public IActionResult Create()
         {
             ViewData["HotelID"] = new SelectList(_context.Hotel, "ID", "ID");
+            ViewData["RoomID"] = new SelectList(_context.Room, "ID", "ID");
             return View();
         }
 
@@ -66,6 +68,7 @@ namespace Async_Inn.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["HotelID"] = new SelectList(_context.Hotel, "ID", "ID", hotelRoom.HotelID);
+            ViewData["RoomID"] = new SelectList(_context.Room, "ID", "ID", hotelRoom.RoomID);
             return View(hotelRoom);
         }
 
@@ -83,6 +86,7 @@ namespace Async_Inn.Controllers
                 return NotFound();
             }
             ViewData["HotelID"] = new SelectList(_context.Hotel, "ID", "ID", hotelRoom.HotelID);
+            ViewData["RoomID"] = new SelectList(_context.Room, "ID", "ID", hotelRoom.RoomID);
             return View(hotelRoom);
         }
 
@@ -119,6 +123,7 @@ namespace Async_Inn.Controllers
                 return RedirectToAction(nameof(Index));
             }
             ViewData["HotelID"] = new SelectList(_context.Hotel, "ID", "ID", hotelRoom.HotelID);
+            ViewData["RoomID"] = new SelectList(_context.Room, "ID", "ID", hotelRoom.RoomID);
             return View(hotelRoom);
         }
 
@@ -132,6 +137,7 @@ namespace Async_Inn.Controllers
 
             var hotelRoom = await _context.HotelRoom
                 .Include(h => h.Hotel)
+                .Include(h => h.Room)
                 .FirstOrDefaultAsync(m => m.HotelID == id);
             if (hotelRoom == null)
             {
