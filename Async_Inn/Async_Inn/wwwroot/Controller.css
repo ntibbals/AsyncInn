@@ -1,9 +1,7 @@
 ﻿body {
-    background-color: #eee;
+    background-color: #000;
+    color: #fff;
     text-align: center;
-}
-#body {
-    background-color: #888;
 }
 
 /************HEADER ********************/
@@ -13,8 +11,6 @@
     margin-top: .5vw;
 }
 header {
-    background: #666;
-    color: #fff;
     text-align: left;
     border: solid 2px black;
 } 
@@ -25,7 +21,7 @@ a {
 }
 
 span {
-    background-color: #eee;
+    background-color: #fff;
 }
 
 a:hover {
@@ -83,7 +79,7 @@ a:hover {
         height: 4px;
         margin-bottom: 5px;
         position: relative;
-        background: #fff;
+        background: #000;
         border-radius: 3px;
         z-index: 1;
         transform-origin: 4px 0px;
@@ -129,19 +125,7 @@ a:hover {
     padding-left: 13vw;
   
     }
-    /*****************Create Controllers****************/
-    main {
 
-    }
-    #create-butt{
-        background: #000;
-        border-radius: .5em;
-    }
-    #create-contain{
-        border: solid 2px black;
-        width: 55vw;
-        margin-left: 22vw;
-    }
 /*********** greater than mobile - desktop view *********************/
 /*@media screen and (min-width: 960px) {
 

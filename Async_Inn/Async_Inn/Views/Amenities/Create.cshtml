@@ -1,8 +1,6 @@
 ﻿@model Async_Inn.Models.Amenities
 
-@{
-    ViewData["Title"] = "Create";
-}
+
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>Home Page</title>
@@ -13,7 +11,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 </head>
-<body>
+<body id="body">
     <header>
         <div id="headcontain">
 
@@ -25,10 +23,10 @@
                     <span></span>
                     <ul id="nav">
                         <li><a href='/'>Home</a></li>
-                        <li><a href='/Amenities'>Hotel Amenities</a></li>
-                        <li><a href='/Hotel'>Hotels</a></li>
+                        <li><a href='/Hotel'>Create Hotel</a></li>
+                        <li><a href='/Amenities'>Create Amenity</a></li>
+                        <li><a href='/Room'>Create Room</a></li>
                         <li><a href='/HotelRoom'>Hotel Rooms</a></li>
-                        <li><a href='/Room'>Rooms</a></li>
                         <li><a href='/RoomAmenities'>Room Amenities</a></li>
 
                     </ul>
@@ -42,28 +40,33 @@
         </div>
     </header>
     <main>
-        <h1>Create</h1>
+        <div id="create-contain">
+        @{
+            ViewData["Title"] = "Create";
+        }
+        <h1 class="col-md-9 offset-md-4">Create a New Amenity</h1>
 
-        <h4>Amenities</h4>
+        <h4 class="col-md-4 offset-md-4">Add Below</h4>
         <hr />
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-6">
                 <form asp-action="Create">
                     <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                    <div class="form-group">
+                    <div class="form-group col-md-8 offset-md-8">
                         <label asp-for="Name" class="control-label"></label>
                         <input asp-for="Name" class="form-control" />
                         <span asp-validation-for="Name" class="text-danger"></span>
                     </div>
-                    <div class="form-group">
-                        <input type="submit" value="Create" class="btn btn-primary" />
+                    <div class="form-group col-md-9 offset-md-8">
+                        <input type="submit" value="Create" id="create-butt"class="btn btn-primary" />
                     </div>
                 </form>
             </div>
         </div>
 
         <div>
-            <a asp-action="Index">Back to List</a>
+            <a asp-action="Index" id ="create-butt"class="col-md-6 offset-md-4">Back to List</a>
+        </div>
         </div>
     </main>
     <footer></footer>

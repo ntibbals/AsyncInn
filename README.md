@@ -13,6 +13,15 @@
 - The Room Amenities table has a manay to many relationship with the Room AND Amenities table along with two concrete keys of Ameniteis ID and Room ID.
 - The Amenities table has a one to many relationship wit hthe Room Amenities table along with one primary key.
 
+### Navigation
+
+- From the home page, you can navigate to "Create Hotel" page, "Create Room" page, "Create Amenity" page, as well as pages for the "Hotel Room" association and "Room Amenity" association.
+
 ### Visual
 ![SCHEMA](https://github.com/ntibbals/AsyncInn/blob/master/Assets/index.PNG)
 
+![SCHEMA](https://github.com/ntibbals/AsyncInn/blob/master/Assets/create-am.PNG)
+
+![SCHEMA](https://github.com/ntibbals/AsyncInn/blob/master/Assets/create-hotel.PNG)
+
+![SCHEMA](https://github.com/ntibbals/AsyncInn/blob/master/Assets/create-room.PNG)

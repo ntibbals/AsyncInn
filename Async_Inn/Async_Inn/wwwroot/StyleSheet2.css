@@ -12,7 +12,7 @@
 header {
     text-align: left;
     border: solid 2px black;
-    margin-top: 20vw;
+    margin-top: 15vw;
 } 
 a {
     text-decoration: none;
@@ -209,6 +209,12 @@ a:hover {
             display: none;
 
         }
+    #headhotel {
+        float: left;
+        padding-left: 2vw;
+        height: 8vw;
+        background: #fff;
+    }
     /***************** INDEX *********************/
 
     #index-contain {
