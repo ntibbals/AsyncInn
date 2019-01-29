@@ -12,7 +12,6 @@
 header {
     text-align: left;
     border: solid 2px black;
-    margin-top: 20vw;
 } 
 a {
     text-decoration: none;
@@ -121,31 +120,21 @@ a:hover {
         height: 9vw;
     }
     #index-title{
-    font-size: 6vw;
+    font-size: 5vw;
     padding-left: 13vw;
   
     }
 
 /*********** greater than mobile - desktop view *********************/
-@media screen and (min-width: 960px) {
-    #headtitle {
-        text-align: left;
-        padding-left: 3vw;
-        color: #ffa500;
-        padding-left: 3vw;
-        color: #0072FF;
-        font-size: 3vw;
-    }
+/*@media screen and (min-width: 960px) {
 
     header {
         position: fixed;
         width: 100%;
-        /* height: auto !important; */
-        height: 4.4vw;
+        height: 11.4vw;
         background-color: #222;
         font-size: 6vw;
         padding-top: .5vw;
-        z-index: 2;
     }
 
 
@@ -156,7 +145,7 @@ a:hover {
 
     a {
         text-decoration: none;
-        color: #0072FF;
+        color: #fff;
         transition: none;
     }
 
@@ -169,7 +158,6 @@ a:hover {
         position: relative;
         width: 550px;
         margin: 0 0 0 0;
-        /* top right left bottom */
         opacity: 1;
         background: none;
         border-radius: .5em;
@@ -177,6 +165,7 @@ a:hover {
         transform-origin: 0% 0%;
         transform: none;
         transition: none;
+        z-index: 2;
     }
 
         #nav li {
@@ -197,14 +186,14 @@ a:hover {
     #navToggle {
         display: block;
         position: relative;
-        padding-right: 0px;
+        padding-right: 2vw;
         float: right;
-        right: 0px;
+        right: 50px;
         z-index: 1;
     }
 
         #navToggle input {
-            display: none;
+            display: block;
             width: 40px;
             height: 32px;
             position: absolute;
@@ -219,5 +208,22 @@ a:hover {
             display: none;
 
         }
+    #headhotel {
+        float: left;
+        padding-left: 2vw;
+        height: 8vw;
+    }
+   
 
-}
+    #index-contain {
+        height: 9vw;
+        width: 55vw;
+        text-align: left;
+    }
+
+    #index-title {
+        font-size: 5vw;
+        color: #fff;
+        padding-left: 10vw;
+    }
+}*/

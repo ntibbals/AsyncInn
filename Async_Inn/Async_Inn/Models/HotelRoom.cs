@@ -15,7 +15,7 @@ namespace Async_Inn.Models
         public int RoomID { get; set; }
         [Required(ErrorMessage = "Please provide a rate for the room")]
         [Display(Name = "Room Rate")]
-        [Range(0, 9999.99)]
+        [Range(0, 999.99)]
         public decimal Rate { get; set; }
         [Required(ErrorMessage = "Please confirm if the room is pet friendly")]
         [Display(Name = "Pet Friendly")]
