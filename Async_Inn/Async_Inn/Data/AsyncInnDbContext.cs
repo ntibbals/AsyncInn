@@ -39,6 +39,16 @@ namespace Async_Inn.Data
                 {
                     ID = 3,
                     Name = "Valet"
+                },
+                new Amenities
+                {
+                    ID = 4,
+                    Name = "Open Bar"
+                },
+                new Amenities
+                {
+                    ID = 5,
+                    Name = "Hot Tub"
                 }
                 );
             modelBuilder.Entity<Hotel>().HasData(
@@ -62,6 +72,20 @@ namespace Async_Inn.Data
                     Name = "Cap City",
                     Address = "415",
                     Phone = "777-777-7777"
+                },
+                new Hotel
+                {
+                    ID = 13,
+                    Name = "Sodo",
+                    Address = "515",
+                    Phone = "666-666-6666"
+                },
+                new Hotel
+                {
+                    ID = 14,
+                    Name = "Fremont",
+                    Address = "615",
+                    Phone = "555-555-5555"
                 }
             );
             modelBuilder.Entity<Room>().HasData(
@@ -81,6 +105,24 @@ namespace Async_Inn.Data
             {
                 ID = 41,
                 Name = "Elton",
+                Layout = Layouts.TwoBedroom
+            },
+                        new Room
+            {
+                ID = 51,
+                Name = "Queen",
+                Layout = Layouts.OneBedroom
+            },
+            new Room
+            {
+                ID = 61,
+                Name = "Stix",
+                Layout = Layouts.Studio
+            },
+            new Room
+            {
+                ID = 71,
+                Name = "Zeplin",
                 Layout = Layouts.TwoBedroom
             }
             );
