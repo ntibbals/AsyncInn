@@ -46,15 +46,15 @@
         <div id="create-contain">
             <h1 class="col-md-9 offset-md-4">Create</h1>
 
-            <h4 class="col-md-4 offset-md-4">HotelRoom</h4>
+            <h4 class="col-md-4 offset-md-4">Hotel Room</h4>
             <hr />
             <div class="row">
                 <div class="col-md-6">
                     <form asp-action="Create">
                         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                         <div class="form-group col-md-9 offset-md-8">
-                            <label asp-for="@Model.Hotel.ID" class="control-label"></label>
-                            <select asp-for="@Model.Hotel.ID" class="form-control" asp-items="ViewBag.HotelID"></select>
+                            <label asp-for="@Model.Hotel.Name" class="control-label"></label>
+                            <select asp-for="@Model.Hotel.Name" class="form-control" asp-items="ViewBag.HotelID"></select>
                         </div>
                         <div class="form-group col-md-9 offset-md-8">
                             <label asp-for="RoomNumber" class="control-label"></label>
@@ -62,8 +62,8 @@
                             <span asp-validation-for="RoomNumber" class="text-danger"></span>
                         </div>
                         <div class="form-group col-md-9 offset-md-8">
-                            <label asp-for="RoomID" class="control-label"></label>
-                            <select asp-for="RoomID" class="form-control" asp-items="ViewBag.RoomID"></select>
+                            <label asp-for="@Model.Room.Name" class="control-label"></label>
+                            <select asp-for="@Model.Room.Name" class="form-control" asp-items="ViewBag.RoomID"></select>
                         </div>
                         <div class="form-group col-md-9 offset-md-8">
                             <label asp-for="Rate" class="control-label"></label>
