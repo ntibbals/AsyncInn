@@ -3,14 +3,16 @@ using Async_Inn.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Async_Inn.Migrations
 {
     [DbContext(typeof(AsyncInnDbContext))]
-    partial class AsyncInnDbContextModelSnapshot : ModelSnapshot
+    [Migration("20190128230602_seed2")]
+    partial class seed2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -24,8 +26,7 @@ namespace Async_Inn.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name")
-                        .IsRequired();
+                    b.Property<string>("Name");
 
                     b.HasKey("ID");
 
@@ -46,16 +47,6 @@ namespace Async_Inn.Migrations
                         {
                             ID = 3,
                             Name = "Valet"
-                        },
-                        new
-                        {
-                            ID = 4,
-                            Name = "Open Bar"
-                        },
-                        new
-                        {
-                            ID = 5,
-                            Name = "Hot Tub"
                         });
                 });
 
@@ -65,14 +56,11 @@ namespace Async_Inn.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Address")
-                        .IsRequired();
+                    b.Property<string>("Address");
 
-                    b.Property<string>("Name")
-                        .IsRequired();
+                    b.Property<string>("Name");
 
-                    b.Property<string>("Phone")
-                        .IsRequired();
+                    b.Property<string>("Phone");
 
                     b.HasKey("ID");
 
@@ -99,20 +87,6 @@ namespace Async_Inn.Migrations
                             Address = "415",
                             Name = "Cap City",
                             Phone = "777-777-7777"
-                        },
-                        new
-                        {
-                            ID = 13,
-                            Address = "515",
-                            Name = "Sodo",
-                            Phone = "666-666-6666"
-                        },
-                        new
-                        {
-                            ID = 14,
-                            Address = "615",
-                            Name = "Fremont",
-                            Phone = "555-555-5555"
                         });
                 });
 
@@ -146,8 +120,7 @@ namespace Async_Inn.Migrations
 
                     b.Property<int>("Layout");
 
-                    b.Property<string>("Name")
-                        .IsRequired();
+                    b.Property<string>("Name");
 
                     b.HasKey("ID");
 
@@ -171,24 +144,6 @@ namespace Async_Inn.Migrations
                             ID = 41,
                             Layout = 2,
                             Name = "Elton"
-                        },
-                        new
-                        {
-                            ID = 51,
-                            Layout = 1,
-                            Name = "Queen"
-                        },
-                        new
-                        {
-                            ID = 61,
-                            Layout = 0,
-                            Name = "Stix"
-                        },
-                        new
-                        {
-                            ID = 71,
-                            Layout = 2,
-                            Name = "Zeplin"
                         });
                 });
 
