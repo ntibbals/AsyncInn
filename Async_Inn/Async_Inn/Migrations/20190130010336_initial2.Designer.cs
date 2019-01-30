@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Async_Inn.Migrations
 {
     [DbContext(typeof(AsyncInnDbContext))]
-    [Migration("20190128230602_seed2")]
-    partial class seed2
+    [Migration("20190130010336_initial2")]
+    partial class initial2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -26,7 +26,8 @@ namespace Async_Inn.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.HasKey("ID");
 
@@ -47,6 +48,16 @@ namespace Async_Inn.Migrations
                         {
                             ID = 3,
                             Name = "Valet"
+                        },
+                        new
+                        {
+                            ID = 4,
+                            Name = "Open Bar"
+                        },
+                        new
+                        {
+                            ID = 5,
+                            Name = "Hot Tub"
                         });
                 });
 
@@ -56,11 +67,14 @@ namespace Async_Inn.Migrations
                         .ValueGeneratedOnAdd()
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-                    b.Property<string>("Address");
+                    b.Property<string>("Address")
+                        .IsRequired();
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
-                    b.Property<string>("Phone");
+                    b.Property<string>("Phone")
+                        .IsRequired();
 
                     b.HasKey("ID");
 
@@ -87,6 +101,20 @@ namespace Async_Inn.Migrations
                             Address = "415",
                             Name = "Cap City",
                             Phone = "777-777-7777"
+                        },
+                        new
+                        {
+                            ID = 13,
+                            Address = "515",
+                            Name = "Sodo",
+                            Phone = "666-666-6666"
+                        },
+                        new
+                        {
+                            ID = 14,
+                            Address = "615",
+                            Name = "Fremont",
+                            Phone = "555-555-5555"
                         });
                 });
 
@@ -120,7 +148,8 @@ namespace Async_Inn.Migrations
 
                     b.Property<int>("Layout");
 
-                    b.Property<string>("Name");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.HasKey("ID");
 
@@ -144,6 +173,24 @@ namespace Async_Inn.Migrations
                             ID = 41,
                             Layout = 2,
                             Name = "Elton"
+                        },
+                        new
+                        {
+                            ID = 51,
+                            Layout = 1,
+                            Name = "Queen"
+                        },
+                        new
+                        {
+                            ID = 61,
+                            Layout = 0,
+                            Name = "Stix"
+                        },
+                        new
+                        {
+                            ID = 71,
+                            Layout = 2,
+                            Name = "Zeplin"
                         });
                 });
 

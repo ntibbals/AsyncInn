@@ -13,7 +13,7 @@ namespace Async_Inn.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -26,9 +26,9 @@ namespace Async_Inn.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true),
-                    Address = table.Column<string>(nullable: true),
-                    Phone = table.Column<string>(nullable: true)
+                    Name = table.Column<string>(nullable: false),
+                    Address = table.Column<string>(nullable: false),
+                    Phone = table.Column<string>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -41,7 +41,7 @@ namespace Async_Inn.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
-                    Name = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: false),
                     Layout = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
@@ -55,10 +55,9 @@ namespace Async_Inn.Migrations
                 {
                     HotelID = table.Column<int>(nullable: false),
                     RoomNumber = table.Column<int>(nullable: false),
-                    RoomID = table.Column<decimal>(nullable: false),
+                    RoomID = table.Column<int>(nullable: false),
                     Rate = table.Column<decimal>(nullable: false),
-                    PetFriendly = table.Column<bool>(nullable: false),
-                    RoomID1 = table.Column<int>(nullable: true)
+                    PetFriendly = table.Column<bool>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -70,11 +69,11 @@ namespace Async_Inn.Migrations
                         principalColumn: "ID",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
-                        name: "FK_HotelRoom_Room_RoomID1",
-                        column: x => x.RoomID1,
+                        name: "FK_HotelRoom_Room_RoomID",
+                        column: x => x.RoomID,
                         principalTable: "Room",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateTable(
@@ -101,6 +100,43 @@ namespace Async_Inn.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.InsertData(
+                table: "Amenities",
+                columns: new[] { "ID", "Name" },
+                values: new object[,]
+                {
+                    { 1, "Pool" },
+                    { 2, "Continental Breakfast" },
+                    { 3, "Valet" },
+                    { 4, "Open Bar" },
+                    { 5, "Hot Tub" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Hotel",
+                columns: new[] { "ID", "Address", "Name", "Phone" },
+                values: new object[,]
+                {
+                    { 10, "215", "Queene Anne", "999-999-9999" },
+                    { 11, "315", "Ballard", "888-888-8888" },
+                    { 12, "415", "Cap City", "777-777-7777" },
+                    { 13, "515", "Sodo", "666-666-6666" },
+                    { 14, "615", "Fremont", "555-555-5555" }
+                });
+
+            migrationBuilder.InsertData(
+                table: "Room",
+                columns: new[] { "ID", "Layout", "Name" },
+                values: new object[,]
+                {
+                    { 21, 1, "Bowie" },
+                    { 31, 0, "Freddy" },
+                    { 41, 2, "Elton" },
+                    { 51, 1, "Queen" },
+                    { 61, 0, "Stix" },
+                    { 71, 2, "Zeplin" }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_HotelRoom_HotelID",
                 table: "HotelRoom",
@@ -108,9 +144,9 @@ namespace Async_Inn.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
-                name: "IX_HotelRoom_RoomID1",
+                name: "IX_HotelRoom_RoomID",
                 table: "HotelRoom",
-                column: "RoomID1");
+                column: "RoomID");
 
             migrationBuilder.CreateIndex(
                 name: "IX_RoomAmenities_AmenitiesID",
