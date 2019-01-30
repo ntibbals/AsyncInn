@@ -14,9 +14,9 @@ namespace Async_Inn.Controllers
 {
     public class AmenitiesController : Controller
     {
-        private readonly IAmenitiesManager _context;
+        private readonly IAmenitiesManager _context; /// pulling in interface
 
-        public AmenitiesController(IAmenitiesManager context)
+        public AmenitiesController(IAmenitiesManager context) ///setting new interface as output for controller 
         {
             _context = context;
         }
