@@ -23,7 +23,7 @@ namespace Async_Inn.Controllers
         // GET: Hotel
         public async Task<IActionResult> Index()
         {
-            return View(_context.GetHotels());
+            return View(await _context.GetHotels());
         }
 
         // GET: Hotel/Details/5
