@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Async_Inn.Models.Interfaces
 {
-    interface IRoomManagement
+    interface IHotelManager
     {
     }
 }
