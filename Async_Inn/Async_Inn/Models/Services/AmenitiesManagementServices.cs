@@ -24,10 +24,10 @@ namespace Async_Inn.Models.Services
 
         }
 
-        public async Task<Amenities> GetAmenities()
-        {
-            return await _context.Amenities;
-        }
+        //public async Task<Amenities> GetAmenities()
+        //{
+        //    return _context.Amenities;
+        //}
 
         public async Task<Amenities> GetAmenities(int id)
         {

@@ -24,7 +24,7 @@ namespace Async_Inn.Controllers
         // GET: Amenities
         public async Task<IActionResult> Index()
         {
-            return View( _context.GetAmenities());
+            return View(await _context.Amenities.ToListAsync());
         }
 
         // GET: Amenities/Details/5
