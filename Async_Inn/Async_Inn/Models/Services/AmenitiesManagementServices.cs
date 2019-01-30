@@ -24,10 +24,10 @@ namespace Async_Inn.Models.Services
 
         }
 
-        //public async Task<Amenities> GetAmenities()
-        //{
-        //    return _context.Amenities;
-        //}
+        public async Task<IEnumerable<Amenities>> GetAmenities()
+        {
+            return await _context.Amenities.ToListAsync();
+        }
 
         public async Task<Amenities> GetAmenities(int id)
         {
@@ -46,6 +46,7 @@ namespace Async_Inn.Models.Services
         public async Task UpdateAmenity(Amenities amenity)
         {
             _context.Amenities.Update(amenity);
+            await _context.SaveChangesAsync();
         }
     }
 }

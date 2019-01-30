@@ -1,5 +1,6 @@
 ﻿using Async_Inn.Data;
 using Async_Inn.Models.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,29 +16,33 @@ namespace Async_Inn.Models.Services
         {
             _context = context;
         }
-        public Task CreateAmenity(Hotel hotel)
+        public async Task CreateHotel(Hotel hotel)
         {
-            throw new NotImplementedException();
+            _context.Hotel.Add(hotel);
+            await _context.SaveChangesAsync();
         }
 
-        public Task DeleteHotel(int ID)
+        public async Task DeleteHotel(int id)
         {
-            throw new NotImplementedException();
+            Hotel hotel = _context.Hotel.FirstOrDefault(ho => ho.ID == id);
+            _context.Hotel.Remove(hotel);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<Hotel> GetHotels()
+        public async Task<Hotel> GetHotels(int id)
         {
-            throw new NotImplementedException();
+            return await _context.Hotel.FirstOrDefaultAsync(ho => ho.ID == id);
         }
 
-        public Task<Hotel> GetHotels(int ID)
+        public async Task UpdateHotel(Hotel hotel)
         {
-            throw new NotImplementedException();
+             _context.Hotel.Update(hotel);
+            await _context.SaveChangesAsync();
         }
 
-        public Task UpdateHotel(Hotel hotel)
+        public async Task<IEnumerable<Hotel>> GetHotels()
         {
-            throw new NotImplementedException();
+            return  await _context.Hotel.ToListAsync();
         }
     }
 }
