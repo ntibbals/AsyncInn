@@ -6,15 +6,15 @@
 
 }
     <main>
-        <h1>Index</h1>
+        <h1 class="col-md-9 offset-md-4">Current Properties</h1>
 
-        <p>
-            <a asp-action="Create">Create New</a>
+        <p class="col-md-4 offset-md-4">
+            <a asp-action="Create">Create New Hotel</a>
         </p>
-        <table class="table">
-            <thead>
-                <tr>
-                    <th>
+        <table class="table col-md-6 offset-md-3 table-bordered">
+            <thead class="thead-light">
+                <tr class="table-secondary">
+                    <th scope="row">
                         @Html.DisplayNameFor(model => model.Name)
                     </th>
                     <th>
@@ -29,7 +29,7 @@
             <tbody>
                 @foreach (var item in Model)
                 {
-                    <tr>
+                    <tr class="table-secondary">
                         <td>
                             @Html.DisplayFor(modelItem => item.Name)
                         </td>

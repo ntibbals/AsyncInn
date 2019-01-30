@@ -7,14 +7,15 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Async_Inn.Data;
 using Async_Inn.Models;
+using Async_Inn.Models.Interfaces;
 
 namespace Async_Inn.Controllers
 {
     public class RoomController : Controller
     {
-        private readonly AsyncInnDbContext _context;
+        private readonly IRoomManager _context;
 
-        public RoomController(AsyncInnDbContext context)
+        public RoomController(IRoomManager context)
         {
             _context = context;
         }
@@ -22,19 +23,13 @@ namespace Async_Inn.Controllers
         // GET: Room
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Room.ToListAsync());
+            return View(await _context.GetRooms());
         }
 
         // GET: Room/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var room = await _context.Room
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var room = await _context.GetRooms(id);
             if (room == null)
             {
                 return NotFound();
@@ -58,22 +53,17 @@ namespace Async_Inn.Controllers
         {
             if (ModelState.IsValid)
             {
-                _context.Add(room);
-                await _context.SaveChangesAsync();
+                await _context.CreateRoom(room);
                 return RedirectToAction(nameof(Index));
             }
             return View(room);
         }
 
         // GET: Room/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var room = await _context.Room.FindAsync(id);
+            var room = await _context.GetRooms(id);
             if (room == null)
             {
                 return NotFound();
@@ -97,19 +87,12 @@ namespace Async_Inn.Controllers
             {
                 try
                 {
-                    _context.Update(room);
-                    await _context.SaveChangesAsync();
+                    await _context.UpdateRooms(room);
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!RoomExists(room.ID))
-                    {
-                        return NotFound();
-                    }
-                    else
-                    {
+
                         throw;
-                    }
                 }
                 return RedirectToAction(nameof(Index));
             }
@@ -117,15 +100,10 @@ namespace Async_Inn.Controllers
         }
 
         // GET: Room/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var room = await _context.Room
-                .FirstOrDefaultAsync(m => m.ID == id);
+            var room = await _context.GetRooms(id);
             if (room == null)
             {
                 return NotFound();
@@ -139,15 +117,14 @@ namespace Async_Inn.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int id)
         {
-            var room = await _context.Room.FindAsync(id);
-            _context.Room.Remove(room);
-            await _context.SaveChangesAsync();
+            var room = await _context.GetRooms(id);
+            await _context.DeleteRoom(room);
             return RedirectToAction(nameof(Index));
         }
 
-        private bool RoomExists(int id)
-        {
-            return _context.Room.Any(e => e.ID == id);
-        }
+        //private bool RoomExists(int id)
+        //{
+        //    return _context.Room.Any(e => e.ID == id);
+        //}
     }
 }
