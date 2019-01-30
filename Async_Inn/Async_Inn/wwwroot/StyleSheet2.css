@@ -138,9 +138,7 @@ a:hover {
 /*********** greater than mobile - desktop view *********************/
 @media screen and (min-width: 960px) {
 
-    #create-link {
-        color: #000;
-    }
+
     header {
         width: 100%;
         height: 11.4vw;
@@ -243,5 +241,12 @@ a:hover {
     #create-nav {
         color: #666;
         font-size: 3vw;
+    }
+    #create-link {
+        color: #000;
+    }
+    #create-link:hover {
+        color: purple;
+        font-size: 4vw;
     }
 }
