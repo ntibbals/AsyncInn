@@ -8,6 +8,7 @@ namespace Async_Inn.Models
 {
     public class HotelRoom
     {
+        [Required(ErrorMessage = "Please provide a hotel id")]
         public int HotelID { get; set; }
         [Required(ErrorMessage = "Please provide a number for the room")]
         [Display(Name = "Room Number")]

@@ -73,14 +73,14 @@ namespace Async_Inn.Controllers
         }
 
         // GET: HotelRoom/Edit/5
-        public async Task<IActionResult> Edit(int HotelID, int RoomNumber)
+        public async Task<IActionResult> Edit(int? id)
         {
-            //if (id == null)
-            //{
-            //    return NotFound();
-            //}
+            if (id == null)
+            {
+                return NotFound();
+            }
 
-            var hotelRoom = await _context.HotelRoom.FindAsync(HotelID, RoomNumber);
+            var hotelRoom = await _context.HotelRoom.FindAsync(id);
             if (hotelRoom == null)
             {
                 return NotFound();
@@ -95,12 +95,12 @@ namespace Async_Inn.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int HotelID, int RoomNumber, [Bind("HotelID,RoomNumber,RoomID,Rate,PetFriendly")] HotelRoom hotelRoom)
+        public async Task<IActionResult> Edit(int id, [Bind("HotelID,RoomNumber,RoomID,Rate,PetFriendly")] HotelRoom hotelRoom)
         {
-            //if (id != hotelRoom.HotelID)
-            //{
-            //    return NotFound();
-            //}
+            if (id != hotelRoom.HotelID)
+            {
+                return NotFound();
+            }
 
             if (ModelState.IsValid)
             {
