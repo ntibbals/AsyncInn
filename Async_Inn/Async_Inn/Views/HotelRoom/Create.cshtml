@@ -3,50 +3,47 @@
 @{
     ViewData["Title"] = "Create";
     Layout = "_Layout";
-
 }
-    <main>
-        <div id="create-contain">
-            <h1 class="col-md-9 offset-md-4">Create</h1>
 
-            <h4 class="col-md-4 offset-md-4">Hotel Room</h4>
-            <hr />
-            <div class="row">
-                <div class="col-md-6">
-                    <form asp-action="Create">
-                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-                        <div class="form-group col-md-9 offset-md-8">
-                            <label asp-for="@Model.Hotel.ID" class="control-label"></label>
-                            <select asp-for="@Model.Hotel.ID" class="form-control" asp-items="ViewBag.HotelID"></select>
-                        </div>
-                        <div class="form-group col-md-9 offset-md-8">
-                            <label asp-for="RoomNumber" class="control-label"></label>
-                            <input asp-for="RoomNumber" class="form-control" />
-                            <span asp-validation-for="RoomNumber" class="text-danger"></span>
-                        </div>
-                        <div class="form-group col-md-9 offset-md-8">
-                            <label asp-for="@Model.Room.Name" class="control-label"></label>
-                            <select asp-for="@Model.Room.Name" class="form-control" asp-items="ViewBag.RoomID"></select>
-                        </div>
-                        <div class="form-group col-md-9 offset-md-8">
-                            <label asp-for="Rate" class="control-label"></label>
-                            <input asp-for="Rate" class="form-control" />
-                            <span asp-validation-for="Rate" class="text-danger"></span>
-                        </div>
-                        <div class="form-group form-check col-md-9 offset-md-8">
-                            <label class="form-check-label">
-                                <input class="form-check-input" asp-for="PetFriendly" /> @Html.DisplayNameFor(model => model.PetFriendly)
-                            </label>
-                        </div>
-                        <div class="form-group col-md-9 offset-md-8">
-                            <input type="submit" value="Create" id="create-butt" class="btn btn-primary" />
-                        </div>
-                    </form>
-                </div>
-            </div>
+<h1>Create</h1>
 
-            <div>
-                <a asp-action="Index" id="create-butt" class="col-md-6 offset-md-4">Back to List</a>
+<h4>HotelRoom</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="HotelID" class="control-label"></label>
+                <select asp-for="HotelID" class ="form-control" asp-items="ViewBag.HotelID"></select>
             </div>
+            <div class="form-group">
+                <label asp-for="RoomNumber" class="control-label"></label>
+                <input asp-for="RoomNumber" class="form-control" />
+                <span asp-validation-for="RoomNumber" class="text-danger"></span>
             </div>
-    </main>
+            <div class="form-group">
+                <label asp-for="RoomID" class="control-label"></label>
+                <select asp-for="RoomID" class ="form-control" asp-items="ViewBag.RoomID"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Rate" class="control-label"></label>
+                <input asp-for="Rate" class="form-control" />
+                <span asp-validation-for="Rate" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="PetFriendly" /> @Html.DisplayNameFor(model => model.PetFriendly)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

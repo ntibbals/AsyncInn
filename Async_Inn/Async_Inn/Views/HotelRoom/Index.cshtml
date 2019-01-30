@@ -3,55 +3,52 @@
 @{
     ViewData["Title"] = "Index";
     Layout = "_Layout";
-
 }
-    <main>
-        <h1 class="col-md-9 offset-md-4">Current List of Hotel Rooms</h1>
 
-        <p class="col-md-4 offset-md-4">
-            <a asp-action="Create">List new room</a>
-        </p>
-        <table class="table col-md-4 offset-md-4">
-            <thead>
-                <tr class="table-secondary">
-                    <th>
-                        @Html.DisplayNameFor(model => model.Rate)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.PetFriendly)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Hotel)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Room)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr class="table-secondary">
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Rate)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.PetFriendly)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Hotel.ID)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Room.ID)
-                        </td>
-                        <td>
-                            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-    </main>
+<h1 class="col-md-9 offset-md-4">Current List of Hotel Rooms</h1>
+
+<p class="col-md-4 offset-md-4">
+    <a asp-action="Create">Create New Hotel Room</a>
+</p>
+<table class="table col-md-4 offset-md-4 table-bordered">
+    <thead class="thead-light">
+        <tr class="table-secondary">
+            <th>
+                @Html.DisplayNameFor(model => model.Rate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PetFriendly)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Hotel)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Room)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr class="table-secondary">
+            <td>
+                @Html.DisplayFor(modelItem => item.Rate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PetFriendly)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hotel.Address)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Room.Name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
