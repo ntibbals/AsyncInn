@@ -28,14 +28,10 @@ namespace Async_Inn.Controllers
         }
 
         // GET: Amenities/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var amenities = await _context.GetAmenities();
+            var amenities = await _context.GetAmenities(id);
      
             if (amenities == null)
             {
@@ -119,7 +115,7 @@ namespace Async_Inn.Controllers
         public async Task<IActionResult> Delete(int id)
         {
 
-            var amenities = _context.DeleteAmenity(id);
+            var amenities = await _context.GetAmenities(id);
             if (amenities == null)
             {
                 return NotFound();
@@ -129,15 +125,14 @@ namespace Async_Inn.Controllers
         }
 
         // POST: Amenities/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> DeleteConfirmed(int id)
-        //{
-        //    var amenities = await _context.Amenities.FindAsync(id);
-        //    _context.Amenities.Remove(amenities);
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var amenities = await _context.GetAmenities(id);
+            await _context.DeleteAmenity(amenities);
+            return RedirectToAction(nameof(Index));
+        }
 
         //private bool AmenitiesExists(int id)
         //{

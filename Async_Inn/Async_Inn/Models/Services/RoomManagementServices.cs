@@ -30,7 +30,7 @@ namespace Async_Inn.Models.Services
             await _context.SaveChangesAsync();
         }
 
-        public async Task<Room> GetRoom(int id)
+        public async Task<Room> GetRooms(int id)
         {
             return await _context.Room.FirstOrDefaultAsync(ro => ro.ID == id);
         }
@@ -43,6 +43,12 @@ namespace Async_Inn.Models.Services
         public async Task UpdateRooms(Room room)
         {
             _context.Room.Update(room);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteRoom(Room room)
+        {
+            _context.Room.Remove(room);
             await _context.SaveChangesAsync();
         }
     }

@@ -27,14 +27,9 @@ namespace Async_Inn.Controllers
         }
 
         // GET: Hotel/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
-
-            var hotel = await _context.GetHotels();
+            var hotel = await _context.GetHotels(id);
             if (hotel == null)
             {
                 return NotFound();
@@ -112,14 +107,10 @@ namespace Async_Inn.Controllers
         }
 
         // GET: Hotel/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int id)
         {
-            if (id == null)
-            {
-                return NotFound();
-            }
 
-            var hotel = await _context.GetHotels();
+            var hotel = await _context.GetHotels(id);
             if (hotel == null)
             {
                 return NotFound();
@@ -129,15 +120,14 @@ namespace Async_Inn.Controllers
         }
 
         // POST: Hotel/Delete/5
-        //[HttpPost, ActionName("Delete")]
-        //[ValidateAntiForgeryToken]
-        //public async Task<IActionResult> DeleteConfirmed(int id)
-        //{
-        //    var hotel = await _context.Hotel.FindAsync(id);
-        //    _context.Hotel.Remove(hotel);
-        //    await _context.SaveChangesAsync();
-        //    return RedirectToAction(nameof(Index));
-        //}
+        [HttpPost, ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteConfirmed(int id)
+        {
+            var hotel = await _context.GetHotels(id);
+            await _context.DeleteHotel(hotel);
+            return RedirectToAction(nameof(Index));
+        }
 
         //private bool HotelExists(int id)
         //{

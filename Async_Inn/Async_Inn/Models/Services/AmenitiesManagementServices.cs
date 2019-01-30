@@ -39,13 +39,19 @@ namespace Async_Inn.Models.Services
         {
            Amenities amenity = await _context.Amenities.FirstOrDefaultAsync(amen => amen.ID == id);
             _context.Amenities.Remove(amenity);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
 
         public async Task UpdateAmenity(Amenities amenity)
         {
             _context.Amenities.Update(amenity);
+            await _context.SaveChangesAsync();
+        }
+
+        public async Task DeleteAmenity(Amenities amenity)
+        {
+            _context.Amenities.Remove(amenity);
             await _context.SaveChangesAsync();
         }
     }

@@ -15,5 +15,6 @@ namespace Async_Inn.Models.Interfaces
         Task UpdateHotel(Hotel hotel);
 
         Task DeleteHotel(int id);
+        Task DeleteHotel(Hotel hotel);
     }
 }

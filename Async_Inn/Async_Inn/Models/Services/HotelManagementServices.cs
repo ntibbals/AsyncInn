@@ -44,5 +44,11 @@ namespace Async_Inn.Models.Services
         {
             return  await _context.Hotel.ToListAsync();
         }
+
+        public async Task DeleteHotel(Hotel hotel)
+        {
+            _context.Hotel.Remove(hotel);
+            await _context.SaveChangesAsync();
+        }
     }
 }
