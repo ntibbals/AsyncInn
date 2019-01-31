@@ -149,6 +149,9 @@ a:hover {
         width: 55vw;
         margin-left: 22vw;
     }
+#create-link {
+    color: #000;
+}
 #create-link:hover {
     color: purple;
     font-size: 4vw;
