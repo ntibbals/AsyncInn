@@ -2,7 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "_Layout";
+    Layout = "_Search";
 
 }
 
@@ -12,6 +12,11 @@
         <p class="col-md-4 offset-md-4">
             <a asp-action="Create">Create New Amenity</a>
         </p>
+        <form asp-controller="Amenities" asp-action="Index">
+        <p class="col-md-4 offset-md-4">
+            Search for Amenity: <input type="text" name="SearchString" />
+        </p>
+        </form>
         <table class="table col-md-4 offset-md-4 table-bordered">
             <thead class="thead-light">
                 <tr class="table-secondary">
