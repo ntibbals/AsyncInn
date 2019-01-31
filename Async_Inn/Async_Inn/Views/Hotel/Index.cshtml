@@ -6,13 +6,13 @@
 
 }
 <main>
-    <h1 class="col-md-9 offset-md-4">Current Properties</h1>
-
-    <p class="col-md-4 offset-md-4">
-        <a asp-action="Create">Create New Hotel</a>
+    <h1 class="col-md-7 offset-md-3 col-centered">Current Hotels</h1>
+    <div>Total number of Hotels: @Model.ToArray().Length  </div>
+    <p class="col-md-4 offset-md-3 col-centered">
+        <a asp-action="Create" id="links">Create New Hotel</a>
     </p>
     <form asp-controller="Hotel" asp-action="Index">
-        <p class="col-md-4 offset-md-4">
+        <p class="col-md-4 offset-md-3 col-centered">
             Search for a Hotel: <input type="text" name="SearchString" />
         </p>
     </form>

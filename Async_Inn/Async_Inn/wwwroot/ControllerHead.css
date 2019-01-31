@@ -149,6 +149,15 @@ a:hover {
         width: 55vw;
         margin-left: 22vw;
     }
+#create-link:hover {
+    color: purple;
+    font-size: 4vw;
+}
+#create-nav {
+    font-size: 5vw;
+    color: #000;
+    font-family: 'VT323', monospace;
+}
 /*********** greater than mobile - desktop view *********************/
 @media screen and (min-width: 960px) {
     .create-nav {
@@ -215,7 +224,7 @@ a:hover {
         position: relative;
         padding-right: 2vw;
         float: right;
-        right: 105px;
+        right: 50px;
         z-index: 1;
     }
         #navToggle span {
@@ -231,7 +240,7 @@ a:hover {
 
     #index-contain {
         height: 9vw;
-        width: 70vw;
+        width: 55vw;
         text-align: left;
     }
 
@@ -239,5 +248,28 @@ a:hover {
         font-size: 3.8vw;
         color: #fff;
         padding-left: 10vw;
+    }
+    #links {
+        color: #fff;
+    }
+    .col-centered {
+        float: none;
+        margin: 0 auto;
+        padding-top: 0vw;
+        padding-bottom: 1vw;
+    }
+
+    #create-nav {
+        color: #666;
+        font-size: 2vw;
+    }
+
+    #create-link {
+        color: #000;
+    }
+
+    #create-link:hover {
+        color: purple;
+        font-size: 2.2vw;
     }
 }
