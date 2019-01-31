@@ -23,6 +23,7 @@ header {
     color: #fff;
     text-align: left;
     border: solid 2px black;
+    font-family: 'VT323', monospace;
 } 
 a {
     text-decoration: none;
@@ -160,6 +161,7 @@ a:hover {
         background-color: #222;
         font-size: 6vw;
         padding-top: .5vw;
+        font-family: 'VT323', monospace;
     }
 
 
