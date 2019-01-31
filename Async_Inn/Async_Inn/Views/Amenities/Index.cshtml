@@ -2,39 +2,44 @@
 
 @{
     ViewData["Title"] = "Index";
-    Layout = "_Layout";
+    Layout = "_Search";
 
 }
 
-    <main>
-        <h1 class="col-md-9 offset-md-4">Current Available Amenities</h1>
-
+<main>
+    <h1 class="col-md-9 offset-md-4">Current Available Amenities</h1>
+    <div class="col-md-9 offset-md-4">Total number of Amenities: @Model.ToArray().Length  </div>
+    <p class="col-md-4 offset-md-4">
+        <a asp-action="Create" id="links">Create New Amenity</a>
+    </p>
+    <form asp-controller="Amenities" asp-action="Index">
         <p class="col-md-4 offset-md-4">
-            <a asp-action="Create">Create New Amenity</a>
+            Search for Amenity: <input type="text" name="SearchString" />
         </p>
-        <table class="table col-md-4 offset-md-4 table-bordered">
-            <thead class="thead-light">
+    </form>
+    <table class="table col-md-4 offset-md-4 table-bordered">
+        <thead class="thead-light">
+            <tr class="table-secondary">
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
                 <tr class="table-secondary">
-                    <th>
-                        @Html.DisplayNameFor(model => model.Name)
-                    </th>
-                    <th></th>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Name)
+                    </td>
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                        <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                        <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr class="table-secondary">
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-       </main>
+            }
+        </tbody>
+    </table>
+</main>

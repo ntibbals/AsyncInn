@@ -20,10 +20,22 @@ namespace Async_Inn.Controllers
             _context = context;
         }
 
+
         // GET: Hotel
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.GetHotels());
+            var hotel = await _context.GetHotels();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                hotel = hotel.Where(am => am.Name.Contains(searchString));
+            }
+            int count = 0;
+            string displayCount = count.ToString();
+            if (hotel != null)
+            {
+                count = hotel.Count(am => am.ID > 1);
+            }
+            return View(hotel.ToList());
         }
 
         // GET: Hotel/Details/5

@@ -5,42 +5,53 @@
     Layout = "_Layout";
 
 }
-    <main>
-        <h1 class="col-md-9 offset-md-4">Hotel Rooms and Layouts</h1>
-
+<main>
+    <h1 class="col-md-9 offset-md-4">Hotel Rooms and Layouts</h1>
+    <div class="col-md-9 offset-md-4">Total number of Rooms: @Model.ToArray().Length  </div>
+    <p class="col-md-4 offset-md-4">
+        <a asp-action="Create" id="links">Create New Room and Layout</a>
+    </p>
+    <form asp-controller="Room" asp-action="Index">
         <p class="col-md-4 offset-md-4">
-            <a asp-action="Create">Create New Room and Layout</a>
+            Search for a Room: <input type="text" name="SearchString" />
         </p>
-        <table class="table col-md-4 offset-md-4 table-bordered">
-            <thead class="thead-light">
-                <tr class="table-secondary">
-                    <th>
-                        @Html.DisplayNameFor(model => model.Name)
-                    </th>
-                    <th>
-                        @Html.DisplayNameFor(model => model.Layout)
-                    </th>
-                    <th></th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model)
-                {
-                    <tr class="table-secondary">
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Name)
-                        </td>
-                        <td>
-                            @Html.DisplayFor(modelItem => item.Layout)
-                        </td>
-                        <td>
-                            <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
-                            <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
-                            <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
-                        </td>
-                    </tr>
-                }
-            </tbody>
-        </table>
-        </main>
+    </form>
+    <table class="table col-md-4 offset-md-4 table-bordered">
+        <thead class="thead-light">
+            <tr class="table-secondary">
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Layout)
+                </th>
+                <th>
+                    Number of Amenities
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+            <tr class="table-secondary">
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Layout)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Layout)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.ID">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.ID">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.ID">Delete</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</main>
         <footer></footer>

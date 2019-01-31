@@ -22,9 +22,15 @@ namespace Async_Inn.Controllers
         }
 
         // GET: Amenities
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string searchString)
         {
-            return View(await _context.GetAmenities());
+            var amenity = await _context.GetAmenities();
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                amenity = amenity.Where(am => am.Name.Contains(searchString));
+            }
+
+            return View( amenity.ToList());
         }
 
         // GET: Amenities/Details/5

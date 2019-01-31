@@ -18,7 +18,7 @@
 header {
     text-align: left;
     border: solid 2px black;
-    margin-top: 15vw;
+    margin-top: 0vw;
 } 
 a {
     text-decoration: none;
@@ -202,18 +202,6 @@ a:hover {
         z-index: 1;
     }
 
-        #navToggle input {
-            display: none;
-            width: 40px;
-            height: 32px;
-            position: absolute;
-            top: -7px;
-            right: -5px;
-            cursor: pointer;
-            opacity: 0;
-            z-index: 2;
-        }
-
         #navToggle span {
             display: none;
 
@@ -221,7 +209,6 @@ a:hover {
     #headhotel {
         float: left;
         padding-left: 2vw;
-        height: 8vw;
         background: #fff;
     }
     /***************** INDEX *********************/
@@ -233,7 +220,7 @@ a:hover {
     }
 
     #index-title {
-        font-size: 5vw;
+        font-size: 3.8vw;
         color: #fff;
         padding-left: 10vw;
     }

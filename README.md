@@ -2,7 +2,7 @@
 
 ### Introduction
 
-- This is a Hotel management system designed for "Async Inn". The application is intended to assist with management of the hotel chains assets. It allows an administrator the ability to add new hotel locations, find existing hotel locations, add new rooms, add new amenities, associate amenities with specific rooms, as well as manipulate the assets by editing, deleting, creating a room rate and assigning rooms specific numbers. 
+- This is a Hotel management system designed for "Async Inn". The application is intended to assist with management of the hotel chains assets. It allows an administrator the ability to search for a particular asset within each asset category. The administrator has the ability to add new hotel locations, find existing hotel locations, add new rooms, add new amenities, associate amenities with specific rooms, as well as manipulate the assets by editing, deleting, creating a room rate and assigning rooms specific numbers. The application will also display the total number of hotels, rooms, and amenities on each asset landing page. 
 
 ### Specifications
 
@@ -13,6 +13,7 @@
 - The Room table has a one to many relationship with the Hotel Room AND Room Amenities table. It also includes a enum for each potential room layout along with one primary key.
 - The Room Amenities table has a manay to many relationship with the Room AND Amenities table along with two concrete keys of Ameniteis ID and Room ID.
 - The Amenities table has a one to many relationship wit hthe Room Amenities table along with one primary key.
+- 
 
 ### System Design 
 ![SCHEMA](https://github.com/ntibbals/AsyncInn/blob/master/Assets/SchemaAsyncInn.png)
@@ -32,6 +33,15 @@
 
 #### Create new hotel
 ![SCHEMA](https://github.com/ntibbals/AsyncInn/blob/master/Assets/create-hotel.PNG)
+
+#### Edit a hotel
+![SCHEMA](https://github.com/ntibbals/AsyncInn/blob/master/Assets/edit-hotel.PNG)
+
+#### Details of a hotel
+![SCHEMA](https://github.com/ntibbals/AsyncInn/blob/master/Assets/hotel-details.PNG)
+
+#### Details of a hotel
+![SCHEMA](https://github.com/ntibbals/AsyncInn/blob/master/Assets/hotel-delete.PNG)
 
 #### Rooms navigation page
 ![SCHEMA](https://github.com/ntibbals/AsyncInn/blob/master/Assets/room-in.PNG)
