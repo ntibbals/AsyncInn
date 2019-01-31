@@ -1,25 +1,34 @@
 ﻿body {
     background-color: #eee;
-    font-family: 'VT323', monospace;
     text-align: center;
+    font-family: 'Brawler', serif;
+    /*font-family: 'Encode Sans Semi Expanded', sans-serif;*/
 }
 
-#create-link{
+#body {
+    background-color: #888;
+    font-family: 'Brawler', serif;
+}
+
+.create-nav {
+    font-size: 5vw;
     color: #000;
 }
-
-
 /************HEADER ********************/
 #headcontain {
     text-align: left;
     width: 100%;
     margin-top: .5vw;
 }
+
 header {
+    background: #666;
+    color: #fff;
     text-align: left;
     border: solid 2px black;
-    margin-top: 0vw;
-} 
+    font-family: 'VT323', monospace;
+}
+
 a {
     text-decoration: none;
     color: #eee;
@@ -85,7 +94,7 @@ a:hover {
         height: 4px;
         margin-bottom: 5px;
         position: relative;
-        background: #000;
+        background: #fff;
         border-radius: 3px;
         z-index: 1;
         transform-origin: 4px 0px;
@@ -107,7 +116,6 @@ a:hover {
 }
 
 #navToggle input:checked ~ span {
-
     transform: rotate(45deg) translate(-2px, -1px);
 }
 
@@ -120,24 +128,51 @@ a:hover {
         transform: rotate(-45deg) translate(0, -1px);
     }
 
-    /***************** INDEX *********************/
+/***************** INDEX *********************/
 
-    #index-contain {
+#index-contain {
+    height: 9vw;
+}
 
-        height: 9vw;
-    }
-    #index-title{
-    font-size: 6vw;
+#index-title {
+    font-size: 5vw;
     padding-left: 13vw;
-  
+}
+/*****************Create Controllers****************/
+main {
+}
+
+#create-butt {
+    background: #000;
+    border-radius: .5em;
+}
+
+#create-contain {
+    border: solid 2px black;
+    width: 55vw;
+    margin-left: 22vw;
+}
+
+#create-link {
+    color: #000;
+}
+
+    #create-link:hover {
+        color: purple;
+        font-size: 4vw;
     }
+
 #create-nav {
     font-size: 5vw;
     color: #000;
+    font-family: 'VT323', monospace;
 }
 /*********** greater than mobile - desktop view *********************/
 @media screen and (min-width: 960px) {
-
+    .create-nav {
+        color: #666;
+        font-size: 3vw;
+    }
 
     header {
         width: 100%;
@@ -145,7 +180,7 @@ a:hover {
         background-color: #222;
         font-size: 6vw;
         padding-top: .5vw;
-        z-index: 2;
+        font-family: 'VT323', monospace;
     }
 
 
@@ -176,6 +211,7 @@ a:hover {
         transform-origin: 0% 0%;
         transform: none;
         transition: none;
+        z-index: 2;
     }
 
         #nav li {
@@ -204,14 +240,14 @@ a:hover {
 
         #navToggle span {
             display: none;
-
         }
+
     #headhotel {
         float: left;
         padding-left: 2vw;
-        background: #fff;
+        height: 8vw;
     }
-    /***************** INDEX *********************/
+
 
     #index-contain {
         height: 9vw;
@@ -225,15 +261,28 @@ a:hover {
         padding-left: 10vw;
     }
 
+    #links {
+        color: #fff;
+    }
+
+    .col-centered {
+        float: none;
+        margin: 0 auto;
+        padding-top: 0vw;
+        padding-bottom: 1vw;
+    }
+
     #create-nav {
         color: #666;
         font-size: 3vw;
     }
+
     #create-link {
         color: #000;
     }
-    #create-link:hover {
-        color: purple;
-        font-size: 4vw;
-    }
+
+        #create-link:hover {
+            color: purple;
+            font-size: 4vw;
+        }
 }

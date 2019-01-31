@@ -1,8 +1,13 @@
 ﻿body {
-    background-color: #000;
-    color: #fff;
+    background-color: #eee;
+    font-family: 'VT323', monospace;
     text-align: center;
 }
+
+#create-link {
+    color: #000;
+}
+
 
 /************HEADER ********************/
 #headcontain {
@@ -10,10 +15,13 @@
     width: 100%;
     margin-top: .5vw;
 }
+
 header {
     text-align: left;
     border: solid 2px black;
-} 
+    margin-top: 0vw;
+}
+
 a {
     text-decoration: none;
     color: #eee;
@@ -21,7 +29,7 @@ a {
 }
 
 span {
-    background-color: #fff;
+    background-color: #eee;
 }
 
 a:hover {
@@ -101,7 +109,6 @@ a:hover {
 }
 
 #navToggle input:checked ~ span {
-
     transform: rotate(45deg) translate(-2px, -1px);
 }
 
@@ -114,28 +121,32 @@ a:hover {
         transform: rotate(-45deg) translate(0, -1px);
     }
 
-    /***************** INDEX *********************/
+/***************** INDEX *********************/
 
-    #index-contain {
+#index-contain {
+    height: 9vw;
+}
 
-        height: 9vw;
-    }
-    #index-title{
-    font-size: 5vw;
+#index-title {
+    font-size: 6vw;
     padding-left: 13vw;
-  
-    }
+}
 
+#create-nav {
+    font-size: 5vw;
+    color: #000;
+}
 /*********** greater than mobile - desktop view *********************/
-/*@media screen and (min-width: 960px) {
+@media screen and (min-width: 960px) {
+
 
     header {
-        position: fixed;
         width: 100%;
         height: 11.4vw;
-        background-color: #222;
+        background-color: #444;
         font-size: 6vw;
         padding-top: .5vw;
+        z-index: 2;
     }
 
 
@@ -166,7 +177,6 @@ a:hover {
         transform-origin: 0% 0%;
         transform: none;
         transition: none;
-        z-index: 2;
     }
 
         #nav li {
@@ -193,28 +203,19 @@ a:hover {
         z-index: 1;
     }
 
-        #navToggle input {
-            display: block;
-            width: 40px;
-            height: 32px;
-            position: absolute;
-            top: -7px;
-            right: -5px;
-            cursor: pointer;
-            opacity: 0;
-            z-index: 2;
-        }
-
         #navToggle span {
             display: none;
-
         }
+
     #headhotel {
         float: left;
         padding-left: 2vw;
-        height: 8vw;
+        /*background: #fff;
+        padding-right: 2vw;
+        padding-top: 1vw;
+        padding-bottom: .5vw;*/
     }
-   
+    /***************** INDEX *********************/
 
     #index-contain {
         height: 9vw;
@@ -223,8 +224,22 @@ a:hover {
     }
 
     #index-title {
-        font-size: 5vw;
+        font-size: 3.8vw;
         color: #fff;
         padding-left: 10vw;
     }
-}*/
+
+    #create-nav {
+        color: #666;
+        font-size: 3vw;
+    }
+
+    #create-link {
+        color: #000;
+    }
+
+        #create-link:hover {
+            color: purple;
+            font-size: 4vw;
+        }
+}
