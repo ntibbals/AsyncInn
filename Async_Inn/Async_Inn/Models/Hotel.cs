@@ -20,12 +20,11 @@ namespace Async_Inn.Models
         [Phone]
         public string Phone { get; set; }
 
-        ICollection<HotelRoom> Rooms { get; set; }
-        ICollection<Amenities> Amenities { get; set; }
-
         /// <summary>
         /// Navigation properties
         /// </summary>
-        public HotelRoom HotelRoom { get; set; }
+        public ICollection<HotelRoom> Rooms { get; set; }
+
+
     }
 }
