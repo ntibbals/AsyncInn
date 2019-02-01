@@ -73,14 +73,14 @@ namespace Async_Inn.Controllers
         }
 
         // GET: HotelRoom/Edit/5
-        public async Task<IActionResult> Edit(int? id)
+        public async Task<IActionResult> Edit(int? hotelID, int? roomNum)
         {
-            if (id == null)
+            if (hotelID == null || roomNum == null)
             {
                 return NotFound();
             }
 
-            var hotelRoom = await _context.HotelRoom.FindAsync(id);
+            var hotelRoom = await _context.HotelRoom.FindAsync(hotelID, roomNum);
             if (hotelRoom == null)
             {
                 return NotFound();
@@ -128,9 +128,9 @@ namespace Async_Inn.Controllers
         }
 
         // GET: HotelRoom/Delete/5
-        public async Task<IActionResult> Delete(int? id)
+        public async Task<IActionResult> Delete(int? hotelID, int? roomNum)
         {
-            if (id == null)
+            if (hotelID == null || roomNum == null)
             {
                 return NotFound();
             }
@@ -138,7 +138,7 @@ namespace Async_Inn.Controllers
             var hotelRoom = await _context.HotelRoom
                 .Include(h => h.Hotel)
                 .Include(h => h.Room)
-                .FirstOrDefaultAsync(m => m.HotelID == id);
+                .FirstOrDefaultAsync(m => m.HotelID == hotelID && m.RoomNumber == roomNum);
             if (hotelRoom == null)
             {
                 return NotFound();
@@ -150,9 +150,9 @@ namespace Async_Inn.Controllers
         // POST: HotelRoom/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteConfirmed(int id)
+        public async Task<IActionResult> DeleteConfirmed(int hotelID, int roomNum)
         {
-            var hotelRoom = await _context.HotelRoom.FindAsync(id);
+            var hotelRoom = await _context.HotelRoom.FindAsync(hotelID, roomNum);
             _context.HotelRoom.Remove(hotelRoom);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

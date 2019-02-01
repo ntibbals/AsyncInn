@@ -135,7 +135,10 @@ namespace Async_Inn.Controllers
                 return NotFound();
             }
 
-            var roomAmenities = await _context.RoomAmenities.Include(ro => ro.Amenities).Include(ro => ro.Room).FirstOrDefaultAsync(am => am.AmenitiesID == amenID && am.RoomID  == roomID);
+            var roomAmenities = await _context.RoomAmenities
+                .Include(ro => ro.Amenities)
+                .Include(ro => ro.Room)
+                .FirstOrDefaultAsync(am => am.AmenitiesID == amenID && am.RoomID  == roomID);
 
             if (roomAmenities == null)
             {
@@ -150,7 +153,10 @@ namespace Async_Inn.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int amenID, int roomID)
         {
-            var roomAmenities = _context.RoomAmenities.Include(ro => ro.Amenities).Include(ro => ro.Room).FirstOrDefault(am => am.AmenitiesID == amenID && am.RoomID  == roomID);
+            var roomAmenities = _context.RoomAmenities
+                .Include(ro => ro.Amenities)
+                .Include(ro => ro.Room)
+                .FirstOrDefault(am => am.AmenitiesID == amenID && am.RoomID  == roomID);
             _context.RoomAmenities.Remove(roomAmenities);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));

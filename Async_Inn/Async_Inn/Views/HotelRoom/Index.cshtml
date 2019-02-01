@@ -44,9 +44,9 @@
                 @Html.DisplayFor(modelItem => item.Room.Name)
             </td>
             <td>
-                <a asp-action="Edit" asp-route-id="@item.HotelID">Edit</a> |
+                @Html.ActionLink("Edit", "Edit", new { item.HotelID, item.RoomNumber }) |
                 <a asp-action="Details" asp-route-id="@item.HotelID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.HotelID">Delete</a>
+                @Html.ActionLink("Delete", "Delete", new { item.HotelID, item.RoomNumber })
             </td>
         </tr>
 }
