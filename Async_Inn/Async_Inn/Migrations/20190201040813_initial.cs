@@ -138,12 +138,6 @@ namespace Async_Inn.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_HotelRoom_HotelID",
-                table: "HotelRoom",
-                column: "HotelID",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "IX_HotelRoom_RoomID",
                 table: "HotelRoom",
                 column: "RoomID");

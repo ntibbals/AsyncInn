@@ -132,7 +132,7 @@ namespace Async_Inn.Data
         /// Tables
         /// utilizes db set, ensure public creates tables in database
         public DbSet<Amenities> Amenities { get; set; }
-        public DbSet<Hotel> rooms { get; set; }
+        public DbSet<Hotel> Hotel { get; set; }
         public DbSet<HotelRoom> HotelRoom{ get; set; }
         public DbSet<Room> Room { get; set; }
         public DbSet<RoomAmenities> RoomAmenities { get; set; }

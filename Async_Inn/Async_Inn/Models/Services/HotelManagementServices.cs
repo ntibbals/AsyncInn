@@ -18,31 +18,31 @@ namespace Async_Inn.Models.Services
         }
         public async Task CreateHotel(Hotel hotel)
         {
-            _context.rooms.Add(hotel);
+            _context.Hotel.Add(hotel);
             await _context.SaveChangesAsync();
         }
 
         public async Task DeleteHotel(int id)
         {
-            Hotel hotel = _context.rooms.FirstOrDefault(ho => ho.ID == id);
-            _context.rooms.Remove(hotel);
+            Hotel hotel = _context.Hotel.FirstOrDefault(ho => ho.ID == id);
+            _context.Hotel.Remove(hotel);
             await _context.SaveChangesAsync();
         }
 
         public async Task<Hotel> GetHotels(int id)
         {
-            return await _context.rooms.FirstOrDefaultAsync(ho => ho.ID == id);
+            return await _context.Hotel.FirstOrDefaultAsync(ho => ho.ID == id);
         }
 
         public async Task UpdateHotel(Hotel hotel)
         {
-             _context.rooms.Update(hotel);
+             _context.Hotel.Update(hotel);
             await _context.SaveChangesAsync();
         }
 
         public async Task<IEnumerable<Hotel>> GetHotels()
         {
-            var hotels = await _context.rooms.ToListAsync();
+            var hotels = await _context.Hotel.ToListAsync();
 
             foreach (Hotel ho in hotels)
             {
@@ -50,12 +50,12 @@ namespace Async_Inn.Models.Services
             }
             var rooms = _context.HotelRoom.Include(h => h.Hotel).Include(h => h.Room);
 
-            return  await _context.rooms.ToListAsync();
+            return  hotels;
         }
 
         public async Task DeleteHotel(Hotel hotel)
         {
-            _context.rooms.Remove(hotel);
+            _context.Hotel.Remove(hotel);
             await _context.SaveChangesAsync();
         }
     }

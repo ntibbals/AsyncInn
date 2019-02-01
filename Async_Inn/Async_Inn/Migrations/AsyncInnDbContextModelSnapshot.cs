@@ -130,9 +130,6 @@ namespace Async_Inn.Migrations
 
                     b.HasKey("HotelID", "RoomNumber");
 
-                    b.HasIndex("HotelID")
-                        .IsUnique();
-
                     b.HasIndex("RoomID");
 
                     b.ToTable("HotelRoom");
@@ -211,12 +208,12 @@ namespace Async_Inn.Migrations
             modelBuilder.Entity("Async_Inn.Models.HotelRoom", b =>
                 {
                     b.HasOne("Async_Inn.Models.Hotel", "Hotel")
-                        .WithOne("HotelRoom")
-                        .HasForeignKey("Async_Inn.Models.HotelRoom", "HotelID")
+                        .WithMany("Rooms")
+                        .HasForeignKey("HotelID")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Async_Inn.Models.Room", "Room")
-                        .WithMany("HotelRoom")
+                        .WithMany("Hotels")
                         .HasForeignKey("RoomID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });
@@ -229,7 +226,7 @@ namespace Async_Inn.Migrations
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("Async_Inn.Models.Room", "Room")
-                        .WithMany("RoomAmenities")
+                        .WithMany("RoomID")
                         .HasForeignKey("RoomID")
                         .OnDelete(DeleteBehavior.Cascade);
                 });

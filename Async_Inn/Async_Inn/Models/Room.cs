@@ -16,8 +16,8 @@ namespace Async_Inn.Models
         [Display(Name = "Room Layout")]
         public Layouts Layout { get; set; }
 
-        public ICollection<RoomAmenities> RoomAmenities { get; set; }
-        public ICollection<HotelRoom> HotelRoom { get; set; }
+        public ICollection<RoomAmenities> RoomID { get; set; }
+        public ICollection<HotelRoom> Hotels { get; set; }
 
     }
 
