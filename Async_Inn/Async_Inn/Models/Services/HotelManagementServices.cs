@@ -40,16 +40,15 @@ namespace Async_Inn.Models.Services
             await _context.SaveChangesAsync();
         }
 
+
         public async Task<IEnumerable<Hotel>> GetHotels()
         {
-            var hotels = await _context.Hotel.ToListAsync();
+            var hotels = await _context.Hotel.ToListAsync(); // initial call out to grab hotels
 
-            foreach (Hotel ho in hotels)
+            foreach (Hotel ho in hotels) // loop through and identify in  hotel room table where hotelID is equal to current hotels ID, push into Rooms
             {
                 ho.Rooms = await _context.HotelRoom.Where(ro => ro.HotelID == ho.ID).ToListAsync();
             }
-            var rooms = _context.HotelRoom.Include(h => h.Hotel).Include(h => h.Room);
-
             return  hotels;
         }
 
