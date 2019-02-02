@@ -25,6 +25,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.Room)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RoomNumber)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -43,6 +46,9 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Room.Name)
             </td>
+            <th>
+                @Html.DisplayFor(model => item.RoomNumber)
+            </th>
             <td>
                 @Html.ActionLink("Edit", "Edit", new { item.HotelID, item.RoomNumber }) |
                 <a asp-action="Details" asp-route-id="@item.HotelID">Details</a> |
