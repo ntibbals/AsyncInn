@@ -77,7 +77,7 @@ namespace AsyncInn_TDD
                 await amenController.Create(amenRoom);
 
 
-                await amenController.Delete(amenRoom);
+                await amenController.Delete2(amenRoom);
 
                 var result = context.RoomAmenities.FirstOrDefault(ho => ho.AmenitiesID == 3  && ho.RoomID == 23);
 

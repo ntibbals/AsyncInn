@@ -13,7 +13,7 @@
 - The Room table has a one to many relationship with the Hotel Room AND Room Amenities table. It also includes a enum for each potential room layout along with one primary key.
 - The Room Amenities table has a manay to many relationship with the Room AND Amenities table along with two concrete keys of Ameniteis ID and Room ID.
 - The Amenities table has a one to many relationship wit hthe Room Amenities table along with one primary key.
-- 
+- Unit testing for CRUD operations on all tables
 
 ### System Design 
 ![SCHEMA](https://github.com/ntibbals/AsyncInn/blob/master/Assets/SchemaAsyncInn.png)
@@ -55,6 +55,8 @@
 #### Create a new amenity
 ![SCHEMA](https://github.com/ntibbals/AsyncInn/blob/master/Assets/create-am.PNG)
 
+#### Individual Hotel Room navigation page
+![SCHEMA](https://github.com/ntibbals/AsyncInn/blob/master/Assets/hotelroom-ind.PNG)
 
 
 

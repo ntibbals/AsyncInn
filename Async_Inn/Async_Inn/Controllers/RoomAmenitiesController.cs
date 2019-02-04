@@ -156,7 +156,7 @@ namespace Async_Inn.Controllers
 
             return View(roomAmenities);
         }
-        public async Task<IActionResult> Delete(RoomAmenities roomAmenities)
+        public async Task<IActionResult> Delete2(RoomAmenities roomAmenities)
         {
             try
             {
