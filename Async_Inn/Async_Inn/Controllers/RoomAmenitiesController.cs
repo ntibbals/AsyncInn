@@ -156,32 +156,40 @@ namespace Async_Inn.Controllers
 
             return View(roomAmenities);
         }
-        //public async Task<IActionResult> Delete(RoomAmenities roomAmenities)
-        //{
-        //    try
-        //    {
-        //        _context.Entry(roomAmenities).State = EntityState.Deleted;
-        //        await _context.SaveChangesAsync();
-        //        return RedirectToAction("Index");
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        return RedirectToAction("Delete", new { am = roomAmenities.AmenitiesID, ro = roomAmenities.RoomID });
-        //    }
-        //}
+        public async Task<IActionResult> Delete(RoomAmenities roomAmenities)
+        {
+            try
+            {
+                _context.Entry(roomAmenities).State = EntityState.Deleted;
+                await _context.SaveChangesAsync();
+                return RedirectToAction("Index");
+            }
+            catch (DbUpdateConcurrencyException)
+            {
+                return RedirectToAction("Delete", new { am = roomAmenities.AmenitiesID, ro = roomAmenities.RoomID });
+            }
+        }
 
         // POST: RoomAmenities/Delete/5
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteConfirmed(int amenitiesID, int roomID)
         {
-            var roomAmenities = _context.RoomAmenities
-                .Include(ro => ro.Amenities)
-                .Include(ro => ro.Room)
-                .FirstOrDefault(am => am.AmenitiesID == amenitiesID && am.RoomID  == roomID);
-            _context.RoomAmenities.Remove(roomAmenities);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
+            try
+            {
+                var roomAmenities = _context.RoomAmenities
+                    .Include(ro => ro.Amenities)
+                    .Include(ro => ro.Room)
+                    .FirstOrDefault(am => am.AmenitiesID == amenitiesID && am.RoomID == roomID);
+                _context.RoomAmenities.Remove(roomAmenities);
+                await _context.SaveChangesAsync();
+                return RedirectToAction(nameof(Index));
+            }
+            catch (Exception)
+            {
+                return Redirect("https://http.cat/500");
+
+            }
         }
 
         private bool RoomAmenitiesExists(int amenitiesID, int roomID)
