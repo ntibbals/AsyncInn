@@ -60,13 +60,22 @@ namespace Async_Inn.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Name")] Amenities amenities)
         {
-            if (ModelState.IsValid)
+            try
             {
-              
-                await _context.CreateAmenity(amenities);
-                return RedirectToAction(nameof(Index));
+
+                if (ModelState.IsValid)
+                {
+
+                    await _context.CreateAmenity(amenities);
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(amenities);
             }
-            return View(amenities);
+            catch (Exception)
+            {
+                return Redirect("https://http.cat/500");
+
+            }
         }
 
         // GET: Amenities/Edit/5

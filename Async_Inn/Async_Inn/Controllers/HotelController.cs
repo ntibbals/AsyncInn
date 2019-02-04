@@ -58,12 +58,21 @@ namespace Async_Inn.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("ID,Name,Address,Phone")] Hotel hotel)
         {
-            if (ModelState.IsValid)
+            try
             {
-                await _context.CreateHotel(hotel);
-                return RedirectToAction(nameof(Index));
+
+                if (ModelState.IsValid)
+                {
+                    await _context.CreateHotel(hotel);
+                    return RedirectToAction(nameof(Index));
+                }
+                return View(hotel);
             }
-            return View(hotel);
+            catch (Exception)
+            {
+                return Redirect("https://http.cat/500");
+
+            }
         }
 
         // GET: Hotel/Edit/5

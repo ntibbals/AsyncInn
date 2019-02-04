@@ -61,15 +61,24 @@ namespace Async_Inn.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create([Bind("AmenitiesID,RoomID")] RoomAmenities roomAmenities)
         {
-            if (ModelState.IsValid)
+            try
             {
-                _context.Add(roomAmenities);
-                await _context.SaveChangesAsync();
-                return RedirectToAction(nameof(Index));
+
+                if (ModelState.IsValid)
+                {
+                    _context.Add(roomAmenities);
+                    await _context.SaveChangesAsync();
+                    return RedirectToAction(nameof(Index));
+                }
+                ViewData["AmenitiesID"] = new SelectList(_context.Amenities, "ID", "Name", roomAmenities.AmenitiesID);
+                ViewData["RoomID"] = new SelectList(_context.Room, "ID", "Name", roomAmenities.RoomID);
+                return View(roomAmenities);
             }
-            ViewData["AmenitiesID"] = new SelectList(_context.Amenities, "ID", "Name", roomAmenities.AmenitiesID);
-            ViewData["RoomID"] = new SelectList(_context.Room, "ID", "Name", roomAmenities.RoomID);
-            return View(roomAmenities);
+            catch (Exception)
+            {
+                return Redirect("https://http.cat/500");
+
+            }
         }
 
         // GET: RoomAmenities/Edit/5
