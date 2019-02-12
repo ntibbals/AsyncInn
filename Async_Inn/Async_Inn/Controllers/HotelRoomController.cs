@@ -77,7 +77,7 @@ namespace Async_Inn.Controllers
                     }
                     else
                     {
-                        ModelState.AddModelError("", "Hotel Room Numbeer already exists. Please pik another.");
+                        ModelState.AddModelError("", "Hotel Room Numbeer already exists. Please pick another.");
 
                     }
                 }
