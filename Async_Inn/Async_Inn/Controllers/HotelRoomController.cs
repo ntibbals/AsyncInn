@@ -65,9 +65,21 @@ namespace Async_Inn.Controllers
             {
                 if (ModelState.IsValid)
                 {
-                    _context.Add(hotelRoom);
-                    await _context.SaveChangesAsync();
-                    return RedirectToAction(nameof(Index));
+                 var hotelRoomLookup = await _context.HotelRoom
+                .Include(h => h.Hotel)
+                .Include(h => h.Room)
+                .FirstOrDefaultAsync(m => m.RoomNumber == hotelRoom.RoomNumber);
+                    if (hotelRoomLookup == null)
+                    {
+                        _context.Add(hotelRoom);
+                        await _context.SaveChangesAsync();
+                        return RedirectToAction(nameof(Index));
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Hotel Room Numbeer already exists. Please pik another.");
+
+                    }
                 }
                 ViewData["HotelID"] = new SelectList(_context.Hotel, "ID", "Name", hotelRoom.HotelID);
                 ViewData["RoomID"] = new SelectList(_context.Room, "ID", "Name", hotelRoom.RoomID);
