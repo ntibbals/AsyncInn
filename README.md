@@ -1,5 +1,9 @@
 # AsyncInn
 
+### Deployed Website
+
+https://nt-asyncinn.azurewebsites.net/
+
 ### Introduction
 
 - This is a Hotel management system designed for "Async Inn". The application is intended to assist with management of the hotel chains assets. It allows an administrator the ability to search for a particular asset within each asset category. The administrator has the ability to add new hotel locations, find existing hotel locations, add new rooms, add new amenities, associate amenities with specific rooms, as well as manipulate the assets by editing, deleting, creating a room rate and assigning rooms specific numbers. The application will also display the total number of hotels, rooms, and amenities on each asset landing page. 
